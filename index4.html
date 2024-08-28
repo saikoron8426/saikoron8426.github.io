@@ -1,21 +1,34 @@
 <html>
 <body>
-//This is the script tag to load the websocket hooker
-<script src='wsHook.js'></script>
+<script>
+  wsHook.before = function(data, url, wsObject) {
+    console.log("Sending message to " + url + " : " + data);
+}
 
-//These are the functions that are gonig to be executed before a message
-//is sent by the client or received from the server
-//These code must be between some <script> tags or inside a .js file
-wsHook.before = function(data, url) {
-var xhttp = new XMLHttpRequest();
-xhttp.open("GET", "client_msg?m="+data, true);
-xhttp.send();
-}
+// Make sure your program calls `wsClient.onmessage` event handler somewhere.
 wsHook.after = function(messageEvent, url, wsObject) {
-var xhttp = new XMLHttpRequest();
-xhttp.open("GET", "server_msg?m="+messageEvent.data, true);
-xhttp.send();
-return messageEvent;
+    console.log("Received message from " + url + " : " + messageEvent.data);
+    return messageEvent;
 }
+
+// if you do not want to propagate the MessageEvent further down, just return null
+wsHook.after = function(messageEvent, url, wsObject) {
+ console.log("Received message from " + url + " : " + messageEvent.data);
+ // This example can ping-pong forever, so maybe use some conditions
+ wsObject.send("Intercepted and sent again")
+ return null;
+}
+
+var wsClient = new WebSocket("wss://ptl-5c420896b0f1-3eb56d5b4e89.libcurl.me/getkey");
+wsClient.onopen = function () {
+  wsClient.send("Echo this");
+}
+
+wsClient.onmessage = function(e){
+  console.log(e);
+}
+
+</script>
+  
 </body>
 </html>
