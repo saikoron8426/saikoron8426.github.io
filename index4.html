@@ -1,5 +1,6 @@
 <html>
 <body>
+<script src='wsHook.js'></script>
 <script>
   wsHook.before = function(data, url, wsObject) {
     console.log("Sending message to " + url + " : " + data);
