@@ -22,7 +22,7 @@ wsHook.after = function(messageEvent, url, wsObject) {
 
 var wsClient = new WebSocket("wss://ptl-5c420896b0f1-3eb56d5b4e89.libcurl.me/getkey");
 wsClient.onopen = function () {
-  wsClient.send("Echo this");
+  wsClient.send('{"text":"/getkey"}');
 }
 
 wsClient.onmessage = function(e){
